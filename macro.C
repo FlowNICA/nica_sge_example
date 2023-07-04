@@ -2,7 +2,7 @@
 #include <sstream>
 #include <string>
 
-void macro(std::string infile, std::string outrootfile, std::cout outtxtfile)
+void macro(std::string infile, std::string outrootfile, std::string outtxtfile)
 {
   std::cout << "Hello, world!" << std::endl;
   std::cout << "Input file: " << infile.c_str() << ", output file: " << outfile.c_str()
