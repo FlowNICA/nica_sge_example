@@ -36,7 +36,7 @@ module add mpdroot
 
 # You can set a number of environment variables here (if needed)
 export MAIN_DIR=/scratch1/parfenov/Soft/example_batch
-export ROOT_MACRO=${MAIN_DIR}/macro.C
+export ROOT_MACRO=${MAIN_DIR}/readMcDst.C
 
 # If the job requires an input, you can set it right here (list of inputs for all jobs in the array)
 export INPUT_FILELIST=${MAIN_DIR}/file.list
@@ -59,6 +59,7 @@ export TXT=${OUT_TXT}/JOB_${JOB_ID}_${TASK_ID}.txt
 mkdir -p $OUT
 mkdir -p $OUT_LOG
 mkdir -p $OUT_FILE
+mkdir -p $OUT_TXT
 touch $LOG
 
 # You can print out any entries in the log file
@@ -67,7 +68,7 @@ echo "Output file : $OUTPUT" &>>$LOG
 echo "Output txt file: $TXT" &>>$LOG
 
 # Execute ROOT macro or compiled executable here
-root -l -b -q ${ROOT_MACRO}'("'${CURRENT_FILE}'","'${OUTPUT}',"'${TXT}'")' &>> $LOG
+root -l -b -q ${ROOT_MACRO}'("'${CURRENT_FILE}'","'${OUTPUT}'","'${TXT}'")' &>> $LOG
 
 #rm -rfv $TMPDIR &>> $LOG
 echo "Job is done!" &>> $LOG
